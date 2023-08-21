@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>VideoContext Sandbox</title>
+    <meta charset="UTF-8" />
+  </head>
+
+  <body>
+    <!--
+        A canvas needs to define its width and height to know how many pixels you can draw onto it.
+        Its CSS width and height will define the space it takes on screen
+        If omitted, the canvas dimensions will be 300x150 and your videos will not rendered at their
+        optimal definition
+        https://webglfundamentals.org/webgl/lessons/webgl-resizing-the-canvas.html
+    -->
+    <button id="myButton">Play</button>
+    <canvas
+      id="canvas"
+      width="720"
+      height="1280"
+      style="max-width: 852px; width: 100%"
+    ></canvas>
+    <audio id="audioElement" src="music.mp3"></audio>
+    <script src="https://unpkg.com/videocontext"></script>
+    <script src="/src/recorder.js"></script>
+    <script type="module" src="src/index.js"></script>
+  </body>
+</html>
