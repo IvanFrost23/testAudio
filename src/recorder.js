@@ -19,10 +19,15 @@ Recorder = {
 
     start: function (params) {
         Recorder.init();
+        const audioContext = window.audioContext = new AudioContext();
+        const audioElement = document.querySelector("audio");
+        const track = audioContext.createMediaElementSource(audioElement);
+        track.connect(audioContext.destination);
 
-        Recorder.recorder =  new MediaRecorder(document.getElementById("audioElement").captureStream());
+        const mediaStreamDestination = audioContext.createMediaStreamDestination();
+        track.connect(mediaStreamDestination);
 
-
+        Recorder.recorder = new MediaRecorder(mediaStreamDestination.stream);
 
         Recorder.recordedBlobs = [];
 
